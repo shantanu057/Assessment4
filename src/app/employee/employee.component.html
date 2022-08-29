@@ -1,0 +1,127 @@
+<br>
+<h1 style="text-align: center;">Employee Form</h1><br>
+<form [formGroup]="personForm" style="margin-left: 170px;">
+<div class="row col-sm-12">
+    <div class="col-sm-4">
+        <h4>First Name</h4>
+        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input matInput type="text"  name="firstname" placeholder="First Name" formControlName="FirstName">
+        <mat-error *ngIf="personForm.get('FirstName')!.errors!['required']">
+            First Name is required
+        </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="col-sm-4">
+        <h4>Middle Name</h4>
+        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Middle Name</mat-label>
+        <input matInput type="text"  name="MiddleName" placeholder="Middle Name" formControlName="MiddleName">
+        <mat-error *ngIf="personForm.get('MiddleName')!.errors!['required']">
+            Middle Name is required
+        </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="col-sm-4">
+        <h4>Last Name</h4>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input matInput type="text"  name="LastName" placeholder="Last Name" formControlName="LastName">
+            <mat-error *ngIf="personForm.get('LastName')!.errors!['required']">
+                Last Name is required
+            </mat-error>
+            </mat-form-field>
+    </div>
+  
+</div>
+
+<div class="row col-sm-12">
+    <div class="col-sm-4">
+        <h4>Email Id</h4>
+        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email Id</mat-label>
+        <input matInput type="email"  name="email" placeholder="Email" formControlName="EmailId">
+        <mat-error *ngIf="personForm.get('EmailId')!.errors!['required']">
+            EmailID is required
+        </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="col-sm-4">
+        <h4>Contact Number</h4>
+        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Contact Number</mat-label>
+        <input matInput type="number"  name="contactno" placeholder="Contact Number" formControlName="Contactno">
+        <mat-error *ngIf="personForm.get('Contactno')!.errors!['required']">
+            Contact Number is required
+        </mat-error>
+        <mat-error *ngIf="personForm.get('Contactno')!.errors!==null && personForm.get('Contactno')!.errors!['maxLength']">
+            Contact number should be of 10 Digits
+        </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="col-sm-4">
+        <h4>Address</h4>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Address</mat-label>
+            <input matInput type="text"  name="Address" placeholder="Address" formControlName="Address">
+            <mat-error *ngIf="personForm.get('Address')!.errors!['required']">
+                Address is required
+            </mat-error>
+            </mat-form-field>
+    </div>
+  
+</div>
+
+<div class="row col-sm-12">
+    <div class="col-sm-4">
+        <h4>Employee Type</h4>
+        <mat-form-field appearance="fill">
+        <mat-label>Employee Type</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let emp of emptype" [value]="emp.value">
+            {{emp.viewValue}}
+            </mat-option>
+        </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="col-sm-4">
+        <h4>Enter DOB</h4>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter DOB</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        
+    </div>
+
+    <div class="col-sm-4">
+        <h4>Pincode</h4>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Pincode</mat-label>
+            <input matInput type="number"  name="Pincode" placeholder="Pincode" formControlName="Pincode">
+            <mat-error *ngIf="personForm.get('Pincode')!.errors!['required']">
+                Pincode is required
+            </mat-error>
+            </mat-form-field>
+    </div>
+  
+</div>
+
+<br>
+<div class="row col-sm-12">
+    <div class="col-sm-4">
+        <h4>Gender</h4>
+        <mat-radio-group aria-label="Select an option">
+            <mat-radio-button value="male">Male</mat-radio-button>
+            <mat-radio-button value="female">Female</mat-radio-button>
+          </mat-radio-group>
+</div>
+<div class="col-sm-4" >
+    <button style="margin-top: 25px;height:40px;width:240px" type="submit" class="btn btn-success" >Submit</button>
+</div> 
+</div>
+</form>
