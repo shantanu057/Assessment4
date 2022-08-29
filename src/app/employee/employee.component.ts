@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-employee',
@@ -28,5 +28,20 @@ export class EmployeeComponent implements OnInit {
     {value: 'Permanent', viewValue: 'Permanent'},
     {value: 'Contract', viewValue: 'Contract'},
   ];
+
+  emailCheck(control:AbstractControl):{[key:string]:any}|null {
+    
+    const email:string= control.value;
+    const domain=email.substring(0,email.lastIndexOf('@'));
+    
+    if(domain.toLowerCase()==='gmail')
+    {
+      return null;
+    }
+
+    else{
+      return {'emailmismatch':true}
+    }
+  }
 
 }

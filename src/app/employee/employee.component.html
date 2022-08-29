@@ -40,8 +40,9 @@
         <mat-label>Email Id</mat-label>
         <input matInput type="email"  name="email" placeholder="Email" formControlName="EmailId">
         <mat-error *ngIf="personForm.get('EmailId')!.errors!['required']">
-            EmailID is required
+            Email ID is required
         </mat-error>
+        
         </mat-form-field>
     </div>
     <div class="col-sm-4">
@@ -53,9 +54,9 @@
             Contact Number is required
 
         </mat-error>
-        <!-- <mat-error *ngIf="personForm.get('Contactno')!.errors!==null && personForm.get('Contactno')!.errors!['maxLength']">
+        <mat-error *ngIf="personForm.get('Contactno')!.errors!==null && personForm.get('Contactno')!.errors!['maxLength']">
             Contact number should be of 10 Digits
-        </mat-error> -->
+        </mat-error>
         </mat-form-field>
     </div>
 
